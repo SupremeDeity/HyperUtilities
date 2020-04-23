@@ -28,7 +28,7 @@ client.on("message", message => {
 	hosts.forEach(function(host){
     ping.sys.probe(host, function(isAlive){
         var msg = isAlive ? 'host ' + host + ' is alive' : 'host ' + host + ' is dead';
-        console.log(msg);
+        message.channel.send(msg);
     });
 });
   }
