@@ -3,6 +3,8 @@ require('dotenv').config();
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
+var ping = require('ping');
+
 client.on("ready", () => {
   console.log("I am ready!");
 });
@@ -21,8 +23,14 @@ client.on("message", message => {
 	  var ping = "Server Ping: " + (Date.now() - message.createdTimestamp) + " ms\n API: " + Math.round(client.ping) + " ms";
     message.channel.send(ping);
   } else
-  if (command === 'blah') {
-    message.channel.send('Meh.');
+  if (command === 'isAlive') {
+    var hosts = ['43.251.182.19'];
+	hosts.forEach(function(host){
+    ping.sys.probe(host, function(isAlive){
+        var msg = isAlive ? 'host ' + host + ' is alive' : 'host ' + host + ' is dead';
+        console.log(msg);
+    });
+});
   }
 });
 
