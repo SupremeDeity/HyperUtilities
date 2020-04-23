@@ -22,15 +22,15 @@ client.on("message", message => {
     message.channel.send(ping);
   } else
   if (command === 'alive') {
-	var ping = require('ping');
-    var hosts = ['43.251.182.19', 'google.com'];
-	hosts.forEach(function(host){
-    var ms = "Checking: " + host; 
-    message.channel.send(ms);
-    ping.sys.probe(host, function(isAlive){
-        var msg = isAlive ? 'host ' + host + ' is alive' : 'host ' + host + ' is dead';
-        message.channel.send(msg);
-    });
+	  var ping = require ("net-ping");
+	  var session = ping.createSession ();
+	  var target = "::ffff:2bfb:b613";
+	session.pingHost (target, function (error, target, sent, rcvd) {
+    var ms = rcvd - sent;
+    if (error)
+        console.log (target + ": " + error.toString ());
+    else
+        console.log (target + ": Alive (ms=" + ms + ")");
 });
   }
 });
