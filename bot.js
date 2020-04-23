@@ -23,9 +23,11 @@ client.on("message", message => {
 	  var ping = "Server Ping: " + (Date.now() - message.createdTimestamp) + " ms\n API: " + Math.round(client.ping) + " ms";
     message.channel.send(ping);
   } else
-  if (command === 'isAlive') {
+  if (command === 'alive') {
     var hosts = ['43.251.182.19'];
 	hosts.forEach(function(host){
+    var ms = "Checking: " + host; 
+    message.channel.send()
     ping.sys.probe(host, function(isAlive){
         var msg = isAlive ? 'host ' + host + ' is alive' : 'host ' + host + ' is dead';
         message.channel.send(msg);
