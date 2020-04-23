@@ -1,14 +1,29 @@
-const Discord = require("discord.js");
-const Client = new Discord.Client();
+const Discord = require('discord.js');
 
-Client.on('ready', () => {
-    console.log('HyperUtilities Bot Ready.');
+const client = new Discord.Client();
+
+ 
+
+client.on('ready', () => {
+
+    console.log('I am ready!');
+
 });
 
-Client.on('message', message => {
-    if(message.content === 'ping') {
-        message.reply('pong');
-    }
+ 
+
+client.on('message', message => {
+
+    if (message.content === 'ping') {
+
+       message.reply('pong');
+
+       }
+
 });
 
-Client.login(process.env.BOT_TOKEN);
+ 
+
+// THIS  MUST  BE  THIS  WAY
+
+client.login(process.env.BOT_TOKEN);//BOT_TOKEN is the Client Secret
