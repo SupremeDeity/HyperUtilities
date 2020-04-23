@@ -23,7 +23,7 @@ client.on("message", message => {
   } else
   if (command === 'alive') {
 	var ping = require('ping');
-    var hosts = ['43.251.182.19'];
+    var hosts = ['43.251.182.19', 'google.com'];
 	hosts.forEach(function(host){
     var ms = "Checking: " + host; 
     message.channel.send(ms);
