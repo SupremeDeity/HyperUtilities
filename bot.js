@@ -3,8 +3,6 @@ require('dotenv').config();
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
-var ping = require('ping');
-
 client.on("ready", () => {
   console.log("I am ready!");
 });
@@ -24,6 +22,7 @@ client.on("message", message => {
     message.channel.send(ping);
   } else
   if (command === 'alive') {
+	var ping = require('ping');
     var hosts = ['43.251.182.19'];
 	hosts.forEach(function(host){
     var ms = "Checking: " + host; 
