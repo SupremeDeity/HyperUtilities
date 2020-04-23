@@ -18,7 +18,7 @@ client.on("message", message => {
 
   // And our 2 real basic commands!
   if(command === 'ping') {
-	  var ping = Date.now() - message.createdTimestamp + " ms";
+	  var ping = "Server Ping: " + Date.now() - message.createdTimestamp + " ms\n API: " + Math.round(client.ping) + " ms";
     message.channel.send(ping);
   } else
   if (command === 'blah') {
